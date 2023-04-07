@@ -5,7 +5,7 @@ import time
 
 ########### SETTINGS ##########
 
-n_cylinders = 6
+n_cylinders = 5
 
 ### Random data (replace with actual data) ###
 mass_pistons = np.random.uniform(500, 750, n_cylinders).round(1)
@@ -83,8 +83,8 @@ def main():
                 min_var = var
                 optimal_arrangement = arrangement
 
-    print(f"\nMinimum var between sets: {round(min_var, 2)}g")
-    print(f"Minimum std between sets: {round(np.sqrt(min_var), 2)}g")
+    print(f"\nLowest variance between sets: {round(min_var, 2)}g")
+    print(f"Lowest std between sets: {round(np.sqrt(min_var), 2)}g")
     print("Arrangement for least variance:", optimal_arrangement)
 
 if __name__ == '__main__':
