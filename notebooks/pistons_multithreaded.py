@@ -13,7 +13,7 @@ mass_rods = np.random.uniform(400, 600, n_cylinders).round(1)
 mass_pins = np.random.uniform(60, 100, n_cylinders).round(1)
 
 ### Actual Data (enter a list of masses): ###
-# mass_pistons = []
+# mass_pistons = [515, 612, 740, 623, 597, 701]
 # mass_rods = []
 # mass_pins = []
 
@@ -52,6 +52,15 @@ def find_optimal_arrangement(args):
 
 @timer_decorator
 def main():
+
+    print()
+    print(f"Piston masses: {sorted([m for m in mass_pistons])}")
+    print()
+    print(f"Rod Masses: {sorted([m for m in mass_rods])}")
+    print()
+    print(f"Pin masses: {sorted([m for m in mass_pins])}")
+    print()
+
     # Calculate all possible combinations of sets
     rod_combinations = list(itertools.permutations(mass_pins))
     piston_combinations = list(itertools.permutations(mass_pistons))
@@ -73,8 +82,9 @@ def main():
                 min_var = var
                 optimal_arrangement = arrangement
 
-    print("Optimal arrangement:", optimal_arrangement)
-    print("Minimum std:", round(np.sqrt(min_var), 2))
+    print(f"\nMinimum var between sets: {round(min_var, 2)}g")
+    print(f"Minimum std between sets: {round(np.sqrt(min_var), 2)}g")
+    print("Arrangement for least variance:", optimal_arrangement)
 
 if __name__ == '__main__':
     main()
