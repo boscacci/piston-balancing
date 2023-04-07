@@ -62,12 +62,12 @@ def main():
     print()
 
     # Calculate all possible combinations of sets
-    rod_combinations = list(itertools.permutations(mass_pins))
+    pin_combinations = list(itertools.permutations(mass_pins))
     piston_combinations = list(itertools.permutations(mass_pistons))
-    pin_combinations = list(itertools.permutations(mass_rods))
+    rod_combinations = list(itertools.permutations(mass_rods))
 
     # Divide the search space into smaller chunks
-    rod_chunk_size = len(rod_combinations) // (multiprocessing.cpu_count() + 1)
+    rod_chunk_size = len(rod_combinations) // (multiprocessing.cpu_count())
     rod_chunks = [rod_combinations[i:i + rod_chunk_size] for i in range(0, len(rod_combinations), rod_chunk_size)]
 
     min_var = float('inf')
