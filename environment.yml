@@ -1,0 +1,12 @@
+name: pistons
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - notebook
+  - matplotlib
+  - pandas
+  - numpy
+  - nb_conda_kernels
+  - black
